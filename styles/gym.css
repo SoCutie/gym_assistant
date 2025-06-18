@@ -1,0 +1,18 @@
+/* Hide all muscle groups by default */
+.muscle-group {
+  display: none;
+  margin-left: 20px;
+  padding: 10px;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+/* Show muscle group when checkbox is checked */
+input[name="workout-type"]:checked ~ .muscle-group {
+  display: block;
+}
+
+/* Style the container */
+.workout-option {
+  margin-bottom: 10px;
+}
