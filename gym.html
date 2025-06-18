@@ -113,7 +113,16 @@
         <label><input type="radio" name="workout-intensity" value="Advanced"> Advanced</label>
         <label><input type="radio" name="workout-intensity" value="Expert"> Expert</label>
     </div>
-
+    
+    <div>
+        <h3> What equipment do you want to use?</h3>
+        <label><input type="checkbox" name="equipment" value="Dumbbells"> Dumbbells</label>
+        <label><input type="checkbox" name="equipment" value="Barbell"> Barbell</label>
+        <label><input type="checkbox" name="equipment" value="Kettlebell"> Kettlebell</label>
+        <label><input type="checkbox" name="equipment" value="Resistance Bands"> Resistance Bands</label>
+        <label><input type="checkbox" name="equipment" value="Bodyweight"> Bodyweight</label>
+        <label><input type="checkbox" name="equipment" value="Gym Machines"> Gym Machines</label>
+    </div>
     <div class="workout-submit">
         <button type="submit" onclick="generateWorkout()">Generate Workout Plan</button>
     </div>
@@ -127,7 +136,8 @@
         function generateWorkout() {
             const workoutTypes = Array.from(document.querySelectorAll('input[name="workout-type"]:checked')).map(el => el.value);
             const muscleGroups = Array.from(document.querySelectorAll('input[name="muscle-group"]:checked')).map(el => el.value);
-            document.getElementById("workout-plan").innerText = `Workout Plan: ${workoutTypes.join(", ")} | Muscles: ${muscleGroups.join(", ")}`;
+            const equipment = Array.from(document.querySelectorAll('input[name="equipment"]:checked')).map(el => el.value);
+            document.getElementById("workout-plan").innerText = `Workout Plan: ${workoutTypes.join(", ")} | Muscles: ${muscleGroups.join(", ")} | Equipment: ${equipment.join(", ")}`;
         }
     </script>
 </body>
