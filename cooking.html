@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cooking Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff6b9d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>    
+    <div class="dietary-restrictions" id="user-dietary-restrictions">
+        <label><input type="checkbox" name="dietary-restriction" value="Vegetarian"> Vegetarian</label>
+        <label><input type="checkbox" name="dietary-restriction" value="Vegan"> Vegan</label>
+        <label><input type="checkbox" name="dietary-restriction" value="Gluten-Free"> Gluten-Free</label>
+        <label><input type="checkbox" name="dietary-restriction" value="Low-Carb"> Low-Carb</label>
+        <label><input type="checkbox" name="dietary-restriction" value="High-Protein"> High-Protein</label>
+    </div>
+    <div class="cooking-type">
+        <h3>What type of meal are you looking for? (You can pick multiple!) 🍽️</h3>
+
+        <!-- Breakfast -->
+        <label>
+            <input type="checkbox" name="meal-type" value="Breakfast"> Breakfast
+        </label>
+        
+
+
+        <button id="submit-button">Get Meal Ideas</button>
+</html>
