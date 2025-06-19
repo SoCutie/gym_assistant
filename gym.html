@@ -43,7 +43,7 @@
 
 <body>
     <div class="workout-type">
-        <h3>What do you want to train? (Pick multiple!) ✨</h3>
+        <h3>What do you want to train? (You can pick multiple!) ✨</h3>
 
         <!-- Upper Body -->
         <label>
@@ -67,6 +67,8 @@
             <label><input type="checkbox" name="muscle-group" value="Hamstrings"> Hamstrings</label>
             <label><input type="checkbox" name="muscle-group" value="Glutes"> Glutes</label>
             <label><input type="checkbox" name="muscle-group" value="Calves"> Calves</label>
+            <label><input type="checkbox" name="muscle-group" value="Adductor"> Adductor</label>
+            <label><input type="checkbox" name="muscle-group" value="Abductor"> Abductor</label>
         </div>
 
         <!-- Full Body -->
@@ -97,7 +99,7 @@
         </div>
     </div>
 
-    <!-- Duration, Intensity, and Submit (unchanged) -->
+    <!-- Duration, Intensity, Additional Notes and Submit -->
     <div class="workout-duration">
         <h3>How long do you want to train?</h3>
         <label><input type="radio" name="workout-duration" value="30"> 30 minutes</label>
@@ -124,6 +126,12 @@
         <label><input type="checkbox" name="equipment" value="Bodyweight"> Bodyweight</label>
         <label><input type="checkbox" name="equipment" value="Gym Machines"> Gym Machines</label>
     </div>
+
+<div> 
+    <h3>Anything you want to add?</h3>
+    <label><input type="text" name="additional-notes"></label>
+</div>
+
     <div class="workout-submit">
         <button type="submit" onclick="generateWorkout()">Generate Workout Plan</button>
     </div>
