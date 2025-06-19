@@ -22,7 +22,7 @@ async function generateMealPlan() {
     4. Nutrition info (calories, macros)`;
 
     try {
-        const response = await fetch('/api/generate-meal', {
+        const response = await fetch('http://localhost:3000/api/generate-meal', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt })
