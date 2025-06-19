@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Gym Assistant</title>
     <style>
@@ -10,7 +11,7 @@
         }
 
         /* Show muscle group when parent checkbox is checked */
-        input[name="workout-type"]:checked ~ .muscle-group {
+        input[name="workout-type"]:checked~.muscle-group {
             display: block;
         }
 
@@ -21,11 +22,13 @@
             margin: 0 auto;
             padding: 20px;
         }
+
         label {
             display: block;
             margin: 5px 0;
             cursor: pointer;
         }
+
         button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -37,16 +40,16 @@
         }
     </style>
 </head>
+
 <body>
     <div class="workout-type">
         <h3>What do you want to train? (Pick multiple!) ✨</h3>
-        
+
         <!-- Upper Body -->
         <label>
             <input type="checkbox" name="workout-type" value="Upper"> Upper Body
         </label>
-        <div class="muscle-group">
-            <h4>Muscle Groups:</h4>
+        <div class="muscle-group" id="Upper-muscle-group">
             <label><input type="checkbox" name="muscle-group" value="Chest"> Chest</label>
             <label><input type="checkbox" name="muscle-group" value="Back"> Back</label>
             <label><input type="checkbox" name="muscle-group" value="Shoulders"> Shoulders</label>
@@ -59,8 +62,7 @@
         <label>
             <input type="checkbox" name="workout-type" value="Lower"> Lower Body
         </label>
-        <div class="muscle-group">
-            <h4>Muscle Groups:</h4>
+        <div class="muscle-group" id="Lower-muscle-group">
             <label><input type="checkbox" name="muscle-group" value="Quads"> Quads</label>
             <label><input type="checkbox" name="muscle-group" value="Hamstrings"> Hamstrings</label>
             <label><input type="checkbox" name="muscle-group" value="Glutes"> Glutes</label>
@@ -76,7 +78,7 @@
         <label>
             <input type="checkbox" name="workout-type" value="Cardio"> Cardio
         </label>
-        <div class="muscle-group">
+        <div class="muscle-group" id="Cardio-muscle-group">
             <h4>Cardio Options:</h4>
             <label><input type="checkbox" name="cardio-option" value="Running"> Running</label>
             <label><input type="checkbox" name="cardio-option" value="Cycling"> Cycling</label>
@@ -88,8 +90,7 @@
         <label>
             <input type="checkbox" name="workout-type" value="Abs"> Abs
         </label>
-        <div class="muscle-group">
-            <h4>Muscle Groups:</h4>
+        <div class="muscle-group" id="Abs-muscle-group">
             <label><input type="checkbox" name="muscle-group" value="Upper Abs"> Upper Abs</label>
             <label><input type="checkbox" name="muscle-group" value="Lower Abs"> Lower Abs</label>
             <label><input type="checkbox" name="muscle-group" value="Obliques"> Obliques</label>
@@ -113,7 +114,7 @@
         <label><input type="radio" name="workout-intensity" value="Advanced"> Advanced</label>
         <label><input type="radio" name="workout-intensity" value="Expert"> Expert</label>
     </div>
-    
+
     <div>
         <h3> What equipment do you want to use?</h3>
         <label><input type="checkbox" name="equipment" value="Dumbbells"> Dumbbells</label>
@@ -139,6 +140,19 @@
             const equipment = Array.from(document.querySelectorAll('input[name="equipment"]:checked')).map(el => el.value);
             document.getElementById("workout-plan").innerText = `Workout Plan: ${workoutTypes.join(", ")} | Muscles: ${muscleGroups.join(", ")} | Equipment: ${equipment.join(", ")}`;
         }
+
+        // Show muscle groups when workout type is checked
+        document.querySelectorAll('input[name="workout-type"]').forEach(input => {
+            input.addEventListener('change', function () {
+                const muscleGroup = document.getElementById(`${this.value}-muscle-group`);
+                if (this.checked) {
+                    muscleGroup.style.display = 'block';
+                } else {
+                    muscleGroup.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
+
 </html>
