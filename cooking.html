@@ -5,7 +5,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 600px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -25,23 +25,57 @@
         }
     </style>
 </head>
-<body>    
-    <div class="dietary-restrictions" id="user-dietary-restrictions">
-        <label><input type="checkbox" name="dietary-restriction" value="Vegetarian"> Vegetarian</label>
-        <label><input type="checkbox" name="dietary-restriction" value="Vegan"> Vegan</label>
-        <label><input type="checkbox" name="dietary-restriction" value="Gluten-Free"> Gluten-Free</label>
-        <label><input type="checkbox" name="dietary-restriction" value="Low-Carb"> Low-Carb</label>
-        <label><input type="checkbox" name="dietary-restriction" value="High-Protein"> High-Protein</label>
+<body>   
+    <h1>Welcome to Your Personal Cooking Planner! 🍳</h1> 
+    <div class="diets" id="user-diet">
+        <h3>Do you follow a specific diet ? You can pick multiple 🥗🍗</h3>
+        <label><input type="checkbox" name="diet" value="Vegetarian"> Vegetarian</label>
+        <label><input type="checkbox" name="diet" value="Vegan"> Vegan</label>
+        <label><input type="checkbox" name="diet" value="Gluten-Free"> Gluten-Free</label>
+        <label><input type="checkbox" name="diet" value="Low-Carb"> Low-Carb</label>
+        <label><input type="checkbox" name="diet" value="High-Protein"> High-Protein</label>
     </div>
+
+    <div class="cooking-time">
+        <h3>How much time do you have to cook? ⏰</h3>
+        <label><input type="radio" name="cooking-time" value="Less than 30 minutes"> Less than 30 minutes</label>
+        <label><input type="radio" name="cooking-time" value="30-60 minutes"> 30-60 minutes</label>
+        <label><input type="radio" name="cooking-time" value="More than 60 minutes"> More than 60 minutes</label>
+    </div>
+
+    <div class="objectives">
+        <h3>What is your main cooking objective? You can pick multiple 🍳</h3>
+        <label><input type="checkbox" name="objective" value="Healthy Eating"> Healthy Eating</label>
+        <label><input type="checkbox" name="objective" value="Weight Loss"> Weight Loss</label>
+        <label><input type="checkbox" name="objective" value="Muscle Gain"> Muscle Gain</label>
+        <label><input type="checkbox" name="objective" value="Meal Prep"> Meal Prep</label>
+        <label><input type="checkbox" name="objective" value="Quick Meals"> Quick Meals</label>
+    </div>
+
+<!-- Cooking Type -->
+
     <div class="cooking-type">
-        <h3>What type of meal are you looking for? (You can pick multiple!) 🍽️</h3>
+        <h3>What type of meal are you looking for? You can pick multiple 🍽️</h3>
 
         <!-- Breakfast -->
         <label>
             <input type="checkbox" name="meal-type" value="Breakfast"> Breakfast
         </label>
-        
 
+        <!-- Lunch -->
+        <label>
+            <input type="checkbox" name="meal-type" value="Lunch"> Lunch
+        </label>
+
+        <!-- Snack -->
+        <label>
+            <input type="checkbox" name="meal-type" value="Snack"> Snack
+        </label>
+
+        <!-- Dinner -->
+        <label>
+            <input type="checkbox" name="meal-type" value="Dinner"> Dinner
+        </label>
 
         <button id="submit-button">Get Meal Ideas</button>
 </html>
