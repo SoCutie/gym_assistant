@@ -1,8 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+ const cors = require('cors');
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 // Gym Assistant Endpoint
@@ -25,6 +27,7 @@ app.post('/api/generate-workout', async (req, res) => {
         res.json({ result: response.data.choices[0].message.content });
     } catch (error) {
         res.status(500).json({ error: error.message });
+        console.error("API Error:", error);
     }
 });
 
@@ -49,6 +52,7 @@ app.post('/api/generate-meal', async (req, res) => {
         res.json({ result: response.data.choices[0].message.content });
     } catch (error) {
         res.status(500).json({ error: error.message });
+        console.error("API Error:", error);
     }
 });
 
