@@ -6,96 +6,203 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 1500px;
+            max-width: 2000px;
             margin: 0 auto;
-            padding: 10px;
-            color :#8bc2ef
+            padding: 20px;
+            color: #3196e8;
+            background-color: #fff9fd;
         }
+        
+        /* Two-column layout */
+        .container {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        
+        .form-column {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .output-column {
+            flex: 1;
+            padding: 20px;
+            background-color: #f8f5ff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            min-height: 500px;
+            border-left: 4px dashed #8bc2ef;
+            align-self: flex-start;
+        }
+        
+        /* Meal ideas output styling */
+        #meal-list {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        
+        /* Form sections */
+        .form-section {
+            margin-bottom: 25px;
+        }
+
+        /* Animation for results */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-card {
+            animation: fadeIn 0.5s ease-out;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        /* Header styling */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        /* Label styling */
         label {
-            display: block;
-            margin: 5px 0;
+            display: inline-block;
+            margin: 5px 10px 5px 0;
             cursor: pointer;
+            padding: 8px 12px;
+            background-color: #f0f8ff;
+            border-radius: 15px;
+            transition: all 0.3s ease;
         }
+        
+        label:hover {
+            background-color: #d4eaff;
+        }
+        
+        /* Input styling */
+        input[type="checkbox"], 
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        
+        /* Button styling */
         button {
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background: #8bc2ef;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 30px auto;
+            width: fit-content;
+        }
+        
+        button:hover {
+            background: #6da8d8;
+            transform: scale(1.05);
+        }
+        
+        /* Text input */
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #8bc2ef;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 400px;
+        }
+        
+        /* Image container */
+        .gym-image {
+            text-align: center;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>   
-    <h1>Welcome to Your Personal Cooking Planner! 🍳</h1> 
-        <!--Cinnamoroll kitchen-->
-        <div class="gym-image">    
-            <img src="assets/pixel_art/kitchen_sanrio.png" alt="Hello Kitty Gym" style="width: 50%; height: auto;">
+    <h1>Welcome to Your Personal Cooking Planner! 🍳</h1>
+    
+    <div class="container">
+        <!-- Left Column - Form -->
+        <div class="form-column">
+            <!--Cinnamoroll kitchen-->
+            <div class="gym-image">    
+                <img src="assets/pixel_art/kitchen_sanrio.png" alt="Hello Kitty Kitchen" style="width: 100%; max-width: 500px; height: auto;">
+            </div>
+
+            <!--Picking characteristics-->
+            <div class="form-section diets" id="user-diet">
+                <h3>Do you follow a specific diet? You can pick multiple 🥗🍗</h3>
+                <div class="options-grid">
+                    <label><input type="checkbox" name="diet" value="Vegetarian"> Vegetarian</label>
+                    <label><input type="checkbox" name="diet" value="Vegan"> Vegan</label>
+                    <label><input type="checkbox" name="diet" value="Gluten-Free"> Gluten-Free</label>
+                    <label><input type="checkbox" name="diet" value="Low-Carb"> Low-Carb</label>
+                    <label><input type="checkbox" name="diet" value="High-Protein"> High-Protein</label>
+                    <label><input type="checkbox" name="diet" value="None"> None</label>
+                </div>
+            </div>
+
+            <div class="form-section cooking-time">
+                <h3>How much time do you have to cook? ⏰</h3>
+                <div class="options-grid">
+                    <label><input type="radio" name="cooking-time" value="Less than 30 minutes"> <30 mins</label>
+                    <label><input type="radio" name="cooking-time" value="30-60 minutes"> 30-60 mins</label>
+                    <label><input type="radio" name="cooking-time" value="More than 60 minutes"> 60+ mins</label>
+                </div>
+            </div>
+
+            <div class="form-section objectives">
+                <h3>What is your main cooking objective? You can pick multiple 🍳</h3>
+                <div class="options-grid">
+                    <label><input type="checkbox" name="objective" value="Healthy Eating"> Healthy</label>
+                    <label><input type="checkbox" name="objective" value="Weight Loss"> Weight Loss</label>
+                    <label><input type="checkbox" name="objective" value="Muscle Gain"> Muscle Gain</label>
+                    <label><input type="checkbox" name="objective" value="Meal Prep"> Meal Prep</label>
+                    <label><input type="checkbox" name="objective" value="Quick Meals"> Quick</label>
+                </div>
+            </div>
+
+            <div class="form-section cooking-type">
+                <h3>What type of meal are you looking for? You can pick multiple 🍽️</h3>
+                <div class="options-grid">
+                    <label><input type="checkbox" name="meal-type" value="Breakfast"> Breakfast</label>
+                    <label><input type="checkbox" name="meal-type" value="Lunch"> Lunch</label>
+                    <label><input type="checkbox" name="meal-type" value="Snack"> Snack</label>
+                    <label><input type="checkbox" name="meal-type" value="Dinner"> Dinner</label>
+                </div>
+            </div>
+
+            <div class="additional-notes">
+                <h3>Anything you want to add? (Allergies, Preferences...)</h3>
+                <input type="text" name="additional-notes" placeholder="e.g., no nuts, love spicy food">
+            </div>
+
+            <button id="submit-button">Get Meal Ideas</button>
         </div>
-
-        <!--Picking characteristics-->
-    <div class="diets" id="user-diet">
-        <h3>Do you follow a specific diet ? You can pick multiple 🥗🍗</h3>
-        <label><input type="checkbox" name="diet" value="Vegetarian"> Vegetarian</label>
-        <label><input type="checkbox" name="diet" value="Vegan"> Vegan</label>
-        <label><input type="checkbox" name="diet" value="Gluten-Free"> Gluten-Free</label>
-        <label><input type="checkbox" name="diet" value="Low-Carb"> Low-Carb</label>
-        <label><input type="checkbox" name="diet" value="High-Protein"> High-Protein</label>
-    </div>
-
-    <div class="cooking-time">
-        <h3>How much time do you have to cook? ⏰</h3>
-        <label><input type="radio" name="cooking-time" value="Less than 30 minutes"> Less than 30 minutes</label>
-        <label><input type="radio" name="cooking-time" value="30-60 minutes"> 30-60 minutes</label>
-        <label><input type="radio" name="cooking-time" value="More than 60 minutes"> More than 60 minutes</label>
-    </div>
-
-    <div class="objectives">
-        <h3>What is your main cooking objective? You can pick multiple 🍳</h3>
-        <label><input type="checkbox" name="objective" value="Healthy Eating"> Healthy Eating</label>
-        <label><input type="checkbox" name="objective" value="Weight Loss"> Weight Loss</label>
-        <label><input type="checkbox" name="objective" value="Muscle Gain"> Muscle Gain</label>
-        <label><input type="checkbox" name="objective" value="Meal Prep"> Meal Prep</label>
-        <label><input type="checkbox" name="objective" value="Quick Meals"> Quick Meals</label>
-    </div>
-
-<!-- Cooking Type -->
-
-    <div class="cooking-type">
-        <h3>What type of meal are you looking for? You can pick multiple 🍽️</h3>
-
-        <!-- Breakfast -->
-        <label>
-            <input type="checkbox" name="meal-type" value="Breakfast"> Breakfast
-        </label>
-
-        <!-- Lunch -->
-        <label>
-            <input type="checkbox" name="meal-type" value="Lunch"> Lunch
-        </label>
-
-        <!-- Snack -->
-        <label>
-            <input type="checkbox" name="meal-type" value="Snack"> Snack
-        </label>
-
-        <!-- Dinner -->
-        <label>
-            <input type="checkbox" name="meal-type" value="Dinner"> Dinner
-        </label>
-        <div> 
-        <h3>Anything you want to add? (Allergies, Preferences...)</h3>
-        <label><input type="text" name="additional-notes"></label>
+        
+        <!-- Right Column - Output -->
+        <div class="output-column">
+            <div class="meal-ideas" id="meal-ideas">
+                <h2>Your Meal Ideas 🍽️</h2>
+                <div id="meal-list">
+                    <div class="placeholder" style="color: #8bc2ef; text-align: center; margin-top: 50px;">
+                        <p>Your personalized meal plan will appear here!</p>
+                        <p>Select your preferences and click "Get Meal Ideas"</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <button id="submit-button">Get Meal Ideas</button>
     </div>
 
-    <div class="meal-ideas" id="meal-ideas">
-        <h2>Your Meal Ideas 🍽️</h2>
-        <p id="meal-list"></p>
-
-<script src="scripts/cooking.js"></script>
+    <script src="scripts/cooking.js"></script>
 </body>
 </html>
