@@ -2,12 +2,14 @@
 <html>
 <head>
     <title>Cooking Assistant</title>
+    <link rel="stylesheet" href="styles/cooking.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 1000px;
+            max-width: 1500px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 10px;
+            color :#8bc2ef
         }
         label {
             display: block;
@@ -17,7 +19,7 @@
         button {
             margin-top: 20px;
             padding: 10px 20px;
-            background: #ff6b9d;
+            background: #8bc2ef;
             color: white;
             border: none;
             border-radius: 5px;
@@ -27,6 +29,12 @@
 </head>
 <body>   
     <h1>Welcome to Your Personal Cooking Planner! 🍳</h1> 
+        <!--Cinnamoroll kitchen-->
+        <div class="gym-image">    
+            <img src="assets/pixel_art/kitchen_sanrio.png" alt="Hello Kitty Gym" style="width: 50%; height: auto;">
+        </div>
+
+        <!--Picking characteristics-->
     <div class="diets" id="user-diet">
         <h3>Do you follow a specific diet ? You can pick multiple 🥗🍗</h3>
         <label><input type="checkbox" name="diet" value="Vegetarian"> Vegetarian</label>
@@ -77,7 +85,7 @@
             <input type="checkbox" name="meal-type" value="Dinner"> Dinner
         </label>
         <div> 
-        <h3>Anything you want to add? (Allergies...)</h3>
+        <h3>Anything you want to add? (Allergies, Preferences...)</h3>
         <label><input type="text" name="additional-notes"></label>
         </div>
 

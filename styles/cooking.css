@@ -1,0 +1,80 @@
+html, body {
+        font-family: Arial, sans-serif;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 10px;
+        color: #8bc2ef;
+        background-color: #fff9fd; /* Light pink background */
+    }
+    
+
+/* Header styling */
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    /* Horizontal layout for groups */
+    .diets, .cooking-time, .objectives, .cooking-type {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    
+    /* Label styling */
+    label {
+        display: inline-block;
+        margin: 5px 10px 5px 0;
+        cursor: pointer;
+        padding: 8px 12px;
+        background-color: #f0f8ff; /* Light blue */
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+    
+    label:hover {
+        background-color: #d4eaff;
+    }
+    
+    /* Input styling */
+    input[type="checkbox"], 
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+    
+    /* Button styling */
+    button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: #8bc2ef;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        display : block;
+        margin : 30px auto;
+        width : fit-content
+    }
+    
+    button:hover {
+        background: #6da8d8;
+        transform: scale(1.05);
+    }
+    
+    /* Text input */
+    input[type="text"] {
+        padding: 8px;
+        border: 1px solid #8bc2ef;
+        border-radius: 15px;
+        width: 80%;
+        max-width: 400px;
+    }
+    
+    /* Image container */
+    .gym-image {
+        text-align: center;
+        margin: 20px 0;
+    }
