@@ -29,7 +29,7 @@ async function generateMealPlan() {
         });
         
         const data = await response.json();
-        displayMealPlan(data.result);
+        document.getElementById("meal-list").innerHTML = formatResponse(data.result);
     } catch (error) {
         document.body.insertAdjacentHTML('beforeend', 
             `<div class="error">⚠️ Error generating meal plan. Please try again.</div>`);
@@ -37,24 +37,3 @@ async function generateMealPlan() {
     }
 }
 
-function displayMealPlan(text) {
-    // Create a new window/tab with the meal plan
-    const mealPlanWindow = window.open();
-    mealPlanWindow.document.write(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Your Custom Meal Plan</title>
-            <style>
-                body { font-family: Arial; padding: 20px; }
-                .meal { margin-bottom: 30px; }
-                h2 { color: #ff6b9d; }
-            </style>
-        </head>
-        <body>
-            <h1>🍽️ Your Personalized Meal Plan</h1>
-            <div>${text.replace(/\n/g, "<br>")}</div>
-        </body>
-        </html>
-    `);
-}
