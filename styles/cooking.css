@@ -1,4 +1,4 @@
-/* cooking.css - Updated with Wider Form Column */
+/*Cooking Page Stylesheet*/
 html, body {
     font-family: Arial, sans-serif;
     max-width: 1800px;
@@ -50,7 +50,7 @@ h1 {
     margin-bottom: 25px;
 }
 
-/* Options grid layout - now fits more items horizontally */
+/* Options grid layout */
 .options-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
