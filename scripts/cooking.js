@@ -21,6 +21,8 @@ async function generateMealPlan() {
     3. Instructions (numbered steps)
     4. Nutrition info (calories, macros)`;
 
+
+
     try {
         const response = await fetch('http://localhost:3000/api/generate-meal', {
             method: 'POST',
@@ -37,3 +39,8 @@ async function generateMealPlan() {
     }
 }
 
+function formatResponse(text) {
+    // Convert ChatGPT response to HTML
+    return text.replace(/\n/g, "<br>")
+               .replace(/\d+\. /g, "<strong>$&</strong>");
+    }
