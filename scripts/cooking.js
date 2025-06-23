@@ -1,10 +1,10 @@
 // cooking.js - Simplified Essential Version
-document.getElementById("submit-button").addEventListener("click", generateMealPlan);
-
 async function generateMealPlan() {
-    const mealList = document.getElementById("meal-list");
-    mealList.innerHTML = '<p style="color:#8bc2ef;">Creating your meal plan... Please wait</p>';
-
+    const mealPlanDiv = document.getElementById("meal-plan");
+    const defaultMessage = document.getElementById("default-message");
+    defaultMessage.style.display = 'none';
+    mealPlanDiv.innerHTML = '<p style="color:#8bc2ef;">Creating your meal plan... Please wait</p>';
+    
     // Gather user inputs
     const mealData = {
         diets: Array.from(document.querySelectorAll('input[name="diet"]:checked')).map(el => el.value),
@@ -34,15 +34,22 @@ async function generateMealPlan() {
         const data = await response.json();
         displayMealPlan(data.result);
     } catch (error) {
-        mealList.innerHTML = '<p style="color:#ff6b6b;">Failed to generate. Please try again.</p>';
+        mealPlanDiv.innerHTML = '<p style="color:#ff6b6b;">Failed to generate. Please try again.</p>';
     }
 }
 
 function displayMealPlan(text) {
-    const mealList = document.getElementById("meal-list");
-    mealList.innerHTML = `
+    const mealPlanDiv = document.getElementById("meal-plan");
+    const defaultMessage = document.getElementById("default-message");
+    defaultMessage.style.display = 'none';
+    mealPlanDiv.innerHTML = `
         <div style="background:white; padding:15px; border-radius:10px;">
             ${text.replace(/\n/g, '<br>')}
         </div>
     `;
 }
+
+// Add event listener when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('submit-button').addEventListener('click', generateMealPlan);
+});

@@ -1,5 +1,16 @@
-// gym.js logic
+// gym.js - Updated version
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('submit-button').addEventListener('click', generateWorkout);
+});
+
 async function generateWorkout() {
+    const workoutPlanDiv = document.getElementById("workout-plan");
+    const defaultMessage = document.getElementById("default-message");
+    
+    // Hide default message and show loading
+    defaultMessage.style.display = 'none';
+    workoutPlanDiv.innerHTML = '<p style="color:#ff8fab;">Creating your workout plan... Please wait</p>';
+
     // Gather user inputs
     const workoutData = {
         workoutTypes: Array.from(document.querySelectorAll('input[name="workout-type"]:checked')).map(el => el.value),
@@ -32,18 +43,21 @@ async function generateWorkout() {
         });
         
         const data = await response.json();
-        document.getElementById("workout-plan").innerHTML = formatResponse(data.result);
+        displayWorkoutPlan(data.result);
     } catch (error) {
-        document.getElementById("workout-plan").innerHTML = 
-            "⚠️ Error generating workout. Please try again later.";
+        defaultMessage.style.display = 'block'; // Show default message again
+        workoutPlanDiv.innerHTML = '<p style="color:#ff6b6b;">⚠️ Error generating workout. Please try again later.</p>';
         console.error("API Error:", error);
     }
 }
 
-function formatResponse(text) {
-    // Convert ChatGPT response to HTML
-    return text.replace(/\n/g, "<br>")
-               .replace(/\d+\. /g, "<strong>$&</strong>");
+function displayWorkoutPlan(text) {
+    const workoutPlanDiv = document.getElementById("workout-plan");
+    workoutPlanDiv.innerHTML = `
+        <div style="background:white; padding:15px; border-radius:10px;">
+            ${text.replace(/\n/g, '<br>')}
+        </div>
+    `;
 }
 
 // Initialize muscle group toggles
