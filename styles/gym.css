@@ -16,3 +16,117 @@ input[name="workout-type"]:checked ~ .muscle-group {
 .workout-option {
   margin-bottom: 10px;
 }
+
+:root {
+    --primary-color: #ff6b9d;
+    --secondary-color: #ff8fab;
+    --accent-color: #d87093;
+    --light-bg: #fff5f7;
+    --dark-text: #4a4a4a;
+}
+
+body {
+    font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    color: var(--accent-color);
+}
+
+.gym-image img {
+    max-width: 300px;
+    height: auto;
+    margin: 20px 0;
+}
+
+.selection-section {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.option-group {
+    margin-bottom: 15px;
+}
+
+.option-label {
+    display: block;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.sub-options {
+    display: none;
+    margin-left: 25px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px dashed var(--secondary-color);
+}
+
+input[type="checkbox"]:checked ~ .sub-options {
+    display: block;
+}
+
+.checkbox-group, .radio-group {
+    margin: 15px 0;
+}
+
+label {
+    display: block;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+label:hover {
+    color: var(--primary-color);
+}
+
+.generate-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+    margin: 25px auto;
+    box-shadow: 0 3px 6px rgba(255, 107, 157, 0.3);
+}
+
+.generate-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.plan-output {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ffd6e0;
+    margin-top: 20px;
+}

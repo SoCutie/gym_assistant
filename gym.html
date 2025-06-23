@@ -1,150 +1,284 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Gym Assistant</title>
     <style>
-        /* Hide muscle groups by default */
-        .muscle-group {
-            display: none;
-            margin-left: 20px;
-        }
-
-        /* Show muscle group when parent checkbox is checked */
-        input[name="workout-type"]:checked~.muscle-group {
-            display: block;
-        }
-
-        /* Styling */
+        /* ===== Base Styles ===== */
         body {
             font-family: Arial, sans-serif;
-            max-width: 1000px;
+            max-width: 2100px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #fff5f7;
             color: #d87093;
         }
 
-        label {
-            display: block;
-            margin: 5px 0;
-            cursor: pointer;
+        h1, h2, h3 {
+            color: #ff6b9d;
+            margin-top: 0;
         }
 
+        h1 {
+            color: #ff6b9d;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        /* ===== Two Column Layout ===== */
+        .main-container {
+            display: flex;
+            gap: 30px;
+            max-width: 2000px;
+        }
+
+        .input-column {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(255, 107, 157, 0.1);
+        }
+
+        .output-column {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(255, 107, 157, 0.1);
+        }
+
+        /* ===== Image Styling ===== */
+        .gym-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .gym-image img {
+            max-width: 350px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* ===== Workout Type Horizontal Layout ===== */
+        .workout-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .workout-types label {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #ffebf1;
+            border-radius: 20px;
+            cursor: pointer;
+            white-space: nowrap;
+            margin: 5px 0;
+        }
+
+        /* ===== Muscle Groups Vertical Layout ===== */
+        .muscle-group {
+            display: none;
+            margin-left: 20px;
+            padding: 10px;
+            background-color: #fff5f7;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        input[name="workout-type"]:checked ~ .muscle-group {
+            display: block;
+        }
+
+        .muscle-group label {
+            display: block;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        /* ===== Form Elements ===== */
+
+        label {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #ffebf1;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.2s;
+            border: 1px solid #ff8fab;
+        }
+
+        label:hover {
+            background-color: #ffebf1;
+        }
+
+        input[type="checkbox"], 
+        input[type="radio"] {
+            margin-right: 8px;
+            accent-color: #ff6b9d;
+        }
+
+        /* ===== Button Styling ===== */
         button {
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background: #ff6b9d;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #d87093;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(255, 107, 157, 0.3);
+        }
+
+        /* ===== Output Section ===== */
+        .workout-output {
+            min-height: 300px;
+            padding: 20px;
+            background-color: #fff5f7;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* ===== Section Styling ===== */
+        .input-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .workout-types {
+                flex-direction: column;
+            }
+            
+            .workout-types label {
+                white-space: normal;
+            }
         }
     </style>
 </head>
-
 <body>
-    <h1> Welcome to Your Personal Workout Planner! 💪</h1>        
-    <!--Hello Kitty gym-->
-        <div class="gym-image">    
-            <img src="assets/pixel_art/hello_gym.png" alt="Hello Kitty Gym" style="width: 50%; height: auto;">
+    <h1>Welcome to Your Personal Workout Planner! 💪</h1>
+    
+    <div class="main-container">
+        <!-- Left Column - Inputs -->
+        <div class="input-column">
+            <!--Hello kitty gym image-->
+            <div class="gym-image">    
+                <img src="assets/pixel_art/hello_gym.png" alt="Hello Kitty Gym">
+            </div>
+
+            <div class="input-section">
+                <h3>What do you want to train? (You can pick multiple!) ✨</h3>
+                <div class="workout-types">
+                    <label>
+                        <input type="checkbox" name="workout-type" value="Upper"> Upper Body
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workout-type" value="Lower"> Lower Body
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workout-type" value="Full"> Full Body
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workout-type" value="Cardio"> Cardio
+                    </label>
+                    <label>
+                        <input type="checkbox" name="workout-type" value="Abs"> Abs
+                    </label>
+                </div>
+
+                <!-- Muscle Groups (appear when parent is checked) -->
+                <div class="muscle-group" id="Upper-muscle-group">
+                    <label><input type="checkbox" name="muscle-group" value="Chest"> Chest</label>
+                    <label><input type="checkbox" name="muscle-group" value="Back"> Back</label>
+                    <label><input type="checkbox" name="muscle-group" value="Shoulders"> Shoulders</label>
+                    <label><input type="checkbox" name="muscle-group" value="Biceps"> Biceps</label>
+                    <label><input type="checkbox" name="muscle-group" value="Triceps"> Triceps</label>
+                    <label><input type="checkbox" name="muscle-group" value="Forearms"> Forearms</label>
+                </div>
+
+                <div class="muscle-group" id="Lower-muscle-group">
+                    <label><input type="checkbox" name="muscle-group" value="Quads"> Quads</label>
+                    <label><input type="checkbox" name="muscle-group" value="Hamstrings"> Hamstrings</label>
+                    <label><input type="checkbox" name="muscle-group" value="Glutes"> Glutes</label>
+                    <label><input type="checkbox" name="muscle-group" value="Calves"> Calves</label>
+                    <label><input type="checkbox" name="muscle-group" value="Adductor"> Adductor</label>
+                    <label><input type="checkbox" name="muscle-group" value="Abductor"> Abductor</label>
+                </div>
+
+                <div class="muscle-group" id="Cardio-muscle-group">
+                    <label><input type="checkbox" name="cardio-option" value="Running"> Running</label>
+                    <label><input type="checkbox" name="cardio-option" value="Cycling"> Cycling</label>
+                    <label><input type="checkbox" name="cardio-option" value="Swimming"> Swimming</label>
+                    <label><input type="checkbox" name="cardio-option" value="HIIT"> HIIT</label>
+                </div>
+
+                <div class="muscle-group" id="Abs-muscle-group">
+                    <label><input type="checkbox" name="muscle-group" value="Upper Abs"> Upper Abs</label>
+                    <label><input type="checkbox" name="muscle-group" value="Lower Abs"> Lower Abs</label>
+                    <label><input type="checkbox" name="muscle-group" value="Obliques"> Obliques</label>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <h3>How long do you want to train?</h3>
+                <label><input type="radio" name="workout-duration" value="30"> 30 minutes</label>
+                <label><input type="radio" name="workout-duration" value="45"> 45 minutes</label>
+                <label><input type="radio" name="workout-duration" value="60"> 60 minutes</label>
+                <label><input type="radio" name="workout-duration" value="90"> 90 minutes</label>
+                <label><input type="radio" name="workout-duration" value="120"> 120 minutes</label>
+            </div>
+
+            <div class="input-section">
+                <h3>What is your fitness level?</h3>
+                <label><input type="radio" name="workout-intensity" value="Beginner"> Beginner</label>
+                <label><input type="radio" name="workout-intensity" value="Intermediate"> Intermediate</label>
+                <label><input type="radio" name="workout-intensity" value="Advanced"> Advanced</label>
+                <label><input type="radio" name="workout-intensity" value="Expert"> Expert</label>
+            </div>
+
+            <div class="input-section">
+                <h3>What equipment do you want to use?</h3>
+                <label><input type="checkbox" name="equipment" value="Dumbbells"> Dumbbells</label>
+                <label><input type="checkbox" name="equipment" value="Barbell"> Barbell</label>
+                <label><input type="checkbox" name="equipment" value="Kettlebell"> Kettlebell</label>
+                <label><input type="checkbox" name="equipment" value="Resistance Bands"> Resistance Bands</label>
+                <label><input type="checkbox" name="equipment" value="Bodyweight"> Bodyweight</label>
+                <label><input type="checkbox" name="equipment" value="Gym Machines"> Gym Machines</label>
+            </div>
+
+            <div class="input-section">
+                <h3>Anything you want to add?</h3>
+                <input type="text" name="additional-notes" style="width: 98%; padding: 8px; border: 1px solid #ff8fab; border-radius: 15px;" placeholder="e.g., specific exercises, injuries, etc.">
+            </div>
+
+            <button type="submit" onclick="generateWorkout()">Generate Workout Plan</button>
         </div>
 
-    <div class="workout-type">
-        <h3>What do you want to train? (You can pick multiple!) ✨</h3>
-    </div>
-        <!-- Upper Body -->
-        <label>
-            <input type="checkbox" name="workout-type" value="Upper"> Upper Body
-        </label>
-        <div class="muscle-group" id="Upper-muscle-group">
-            <label><input type="checkbox" name="muscle-group" value="Chest"> Chest</label>
-            <label><input type="checkbox" name="muscle-group" value="Back"> Back</label>
-            <label><input type="checkbox" name="muscle-group" value="Shoulders"> Shoulders</label>
-            <label><input type="checkbox" name="muscle-group" value="Biceps"> Biceps</label>
-            <label><input type="checkbox" name="muscle-group" value="Triceps"> Triceps</label>
-            <label><input type="checkbox" name="muscle-group" value="Forearms"> Forearms</label>
+        <!-- Right Column - Output -->
+        <div class="output-column">
+            <h2>Your Workout Here</h2>
+            <div class="workout-output">
+                <p>Your personalized workout will appear here!<br>
+                Select your preferences and click "Generate Workout Plan"</p>
+                <p id="workout-plan"></p>
+            </div>
         </div>
-
-        <!-- Lower Body -->
-        <label>
-            <input type="checkbox" name="workout-type" value="Lower"> Lower Body
-        </label>
-        <div class="muscle-group" id="Lower-muscle-group">
-            <label><input type="checkbox" name="muscle-group" value="Quads"> Quads</label>
-            <label><input type="checkbox" name="muscle-group" value="Hamstrings"> Hamstrings</label>
-            <label><input type="checkbox" name="muscle-group" value="Glutes"> Glutes</label>
-            <label><input type="checkbox" name="muscle-group" value="Calves"> Calves</label>
-            <label><input type="checkbox" name="muscle-group" value="Adductor"> Adductor</label>
-            <label><input type="checkbox" name="muscle-group" value="Abductor"> Abductor</label>
-        </div>
-
-        <!-- Full Body -->
-        <label>
-            <input type="checkbox" name="workout-type" value="Full"> Full Body
-        </label>
-
-        <!-- Cardio -->
-        <label>
-            <input type="checkbox" name="workout-type" value="Cardio"> Cardio
-        </label>
-        <div class="muscle-group" id="Cardio-muscle-group">
-            <label><input type="checkbox" name="cardio-option" value="Running"> Running</label>
-            <label><input type="checkbox" name="cardio-option" value="Cycling"> Cycling</label>
-            <label><input type="checkbox" name="cardio-option" value="Swimming"> Swimming</label>
-            <label><input type="checkbox" name="cardio-option" value="HIIT"> HIIT</label>
-        </div>
-
-        <!-- Abs -->
-        <label>
-            <input type="checkbox" name="workout-type" value="Abs"> Abs
-        </label>
-        <div class="muscle-group" id="Abs-muscle-group">
-            <label><input type="checkbox" name="muscle-group" value="Upper Abs"> Upper Abs</label>
-            <label><input type="checkbox" name="muscle-group" value="Lower Abs"> Lower Abs</label>
-            <label><input type="checkbox" name="muscle-group" value="Obliques"> Obliques</label>
-        </div>
-    </div>
-
-    <!-- Duration, Intensity, Additional Notes and Submit -->
-    <div class="workout-duration">
-        <h3>How long do you want to train?</h3>
-        <label><input type="radio" name="workout-duration" value="30"> 30 minutes</label>
-        <label><input type="radio" name="workout-duration" value="45"> 45 minutes</label>
-        <label><input type="radio" name="workout-duration" value="60"> 60 minutes</label>
-        <label><input type="radio" name="workout-duration" value="90"> 90 minutes</label>
-        <label><input type="radio" name="workout-duration" value="120"> 120 minutes</label>
-    </div>
-
-    <div class="workout-intensity">
-        <h3>What is your fitness level?</h3>
-        <label><input type="radio" name="workout-intensity" value="Beginner"> Beginner</label>
-        <label><input type="radio" name="workout-intensity" value="Intermediate"> Intermediate</label>
-        <label><input type="radio" name="workout-intensity" value="Advanced"> Advanced</label>
-        <label><input type="radio" name="workout-intensity" value="Expert"> Expert</label>
-    </div>
-
-    <div>
-        <h3> What equipment do you want to use?</h3>
-        <label><input type="checkbox" name="equipment" value="Dumbbells"> Dumbbells</label>
-        <label><input type="checkbox" name="equipment" value="Barbell"> Barbell</label>
-        <label><input type="checkbox" name="equipment" value="Kettlebell"> Kettlebell</label>
-        <label><input type="checkbox" name="equipment" value="Resistance Bands"> Resistance Bands</label>
-        <label><input type="checkbox" name="equipment" value="Bodyweight"> Bodyweight</label>
-        <label><input type="checkbox" name="equipment" value="Gym Machines"> Gym Machines</label>
-    </div>
-
-<div> 
-    <h3>Anything you want to add?</h3>
-    <label><input type="text" name="additional-notes"></label>
-</div>
-
-    <div class="workout-submit">
-        <button type="submit" onclick="generateWorkout()">Generate Workout Plan</button>
-    </div>
-
-    <div class="workout-output">
-        <h3>Your Workout Plan:</h3>
-        <p id="workout-plan"></p>
     </div>
 
     <script>

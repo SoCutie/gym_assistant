@@ -2,203 +2,219 @@
 <html>
 <head>
     <title>Cooking Assistant</title>
-    <link rel="stylesheet" href="styles/cooking.css">
     <style>
+        /* ===== Base Styles ===== */
         body {
             font-family: Arial, sans-serif;
-            max-width: 2000px;
+            max-width: 2100px;
             margin: 0 auto;
             padding: 20px;
-            color: #3196e8;
-            background-color: #fff9fd;
+            background-color: #f5f9ff;
+            color: #3178e8;
         }
-        
-        /* Two-column layout */
-        .container {
+
+        h1, h2, h3 {
+            color: #6da8d8;
+            margin-top: 0;
+        }
+
+        h1 {
+            color: #6da8d8;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        /* ===== Two Column Layout ===== */
+        .main-container {
             display: flex;
-            gap: 40px;
-            margin-top: 20px;
+            gap: 30px;
+            max-width: 2000px;
         }
-        
-        .form-column {
+
+        .input-column {
             flex: 1;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(107, 156, 255, 0.1);
         }
-        
+
         .output-column {
             flex: 1;
             padding: 20px;
-            background-color: #f8f5ff;
+            background-color: white;
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            min-height: 500px;
-            border-left: 4px dashed #8bc2ef;
-            align-self: flex-start;
-        }
-        
-        /* Meal ideas output styling */
-        #meal-list {
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-        
-        /* Form sections */
-        .form-section {
-            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(107, 156, 255, 0.1);
         }
 
-        /* Animation for results */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .result-card {
-            animation: fadeIn 0.5s ease-out;
-            padding: 15px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        /* Header styling */
-        h1 {
+        /* ===== Image Styling ===== */
+        .cooking-image {
             text-align: center;
             margin-bottom: 20px;
         }
-        
-        /* Label styling */
+
+        .cooking-image img {
+            max-width: 350px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* ===== Consistent Blue Label Styling ===== */
         label {
             display: inline-block;
-            margin: 5px 10px 5px 0;
+            padding: 10px 15px;
+            background-color: #e1edff;
+            border-radius: 20px;
             cursor: pointer;
-            padding: 8px 12px;
-            background-color: #f0f8ff;
-            border-radius: 15px;
-            transition: all 0.3s ease;
+            margin: 5px;
+            transition: all 0.2s;
+            border: 1px solid #8bc2ef;
         }
-        
+
         label:hover {
-            background-color: #d4eaff;
+            background-color: #cce0ff;
         }
-        
-        /* Input styling */
+
+        /* Options grid layout */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 6px;
+        }
+
+        /* ===== Form Elements ===== */
         input[type="checkbox"], 
         input[type="radio"] {
-            margin-right: 5px;
+            margin-right: 8px;
+            accent-color: #6da8d8;
         }
-        
-        /* Button styling */
+
+        /* ===== Button Styling ===== */
         button {
             margin-top: 20px;
             padding: 12px 25px;
-            background: #8bc2ef;
+            background: #6da8d8;
             color: white;
             border: none;
-            border-radius: 25px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 16px;
-            transition: all 0.3s ease;
-            display: block;
-            margin: 30px auto;
-            width: fit-content;
+            transition: all 0.3s;
+            width: 100%;
         }
-        
+
         button:hover {
-            background: #6da8d8;
-            transform: scale(1.05);
+            background: #4d88b8;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(107, 156, 255, 0.3);
         }
-        
-        /* Text input */
-        input[type="text"] {
-            padding: 8px;
+
+        /* ===== Output Section ===== */
+        .output-content {
+            min-height: 300px;
+            padding: 20px;
+            background-color: #f5f9ff;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* ===== Section Styling ===== */
+        .input-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+        }
+
+        /* Text input styling */
+        .text-input {
+            width: 100%;
+            padding: 10px;
             border: 1px solid #8bc2ef;
-            border-radius: 15px;
-            width: 80%;
-            max-width: 400px;
+            border-radius: 20px;
+            background-color: #f5f9ff;
         }
-        
-        /* Image container */
-        .gym-image {
-            text-align: center;
-            margin: 20px 0;
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body>   
+<body>
     <h1>Welcome to Your Personal Cooking Planner! 🍳</h1>
     
-    <div class="container">
-        <!-- Left Column - Form -->
-        <div class="form-column">
-            <!--Cinnamoroll kitchen image-->
-            <div class="gym-image">    
-                <img src="assets/pixel_art/kitchen_sanrio.png" alt="Hello Kitty Kitchen" style="width: 100%; max-width: 500px; height: auto;">
+    <div class="main-container">
+        <!-- Left Column - Inputs -->
+        <div class="input-column">
+            <!-- Cooking character image -->
+            <div class="cooking-image">    
+                <img src="assets/pixel_art/kitchen_sanrio.png" alt="Cinnamoroll Cooking Image">
             </div>
 
-            <!--Picking characteristics-->
-            <div class="form-section diets" id="user-diet">
-                <h3>Do you follow a specific diet? You can pick multiple 🥗🍗</h3>
+            <!-- Diet Preferences -->
+            <div class="input-section">
+                <h3>Diet Preferences (You Can Pick multiple!) ✨</h3>
                 <div class="options-grid">
                     <label><input type="checkbox" name="diet" value="Vegetarian"> Vegetarian</label>
                     <label><input type="checkbox" name="diet" value="Vegan"> Vegan</label>
                     <label><input type="checkbox" name="diet" value="Gluten-Free"> Gluten-Free</label>
                     <label><input type="checkbox" name="diet" value="Low-Carb"> Low-Carb</label>
                     <label><input type="checkbox" name="diet" value="High-Protein"> High-Protein</label>
-                    <label><input type="checkbox" name="diet" value="None"> None</label>
                 </div>
             </div>
 
-            <div class="form-section cooking-time">
-                <h3>How much time do you have to cook? ⏰</h3>
-                <div class="options-grid">
-                    <label><input type="radio" name="cooking-time" value="Less than 30 minutes"> <30 mins</label>
-                    <label><input type="radio" name="cooking-time" value="30-60 minutes"> 30-60 mins</label>
-                    <label><input type="radio" name="cooking-time" value="More than 60 minutes"> 60+ mins</label>
-                </div>
+            <!-- Cooking Time -->
+            <div class="input-section">
+                <h3>How much time do you have? ⏰</h3>
+                <label><input type="radio" name="cooking-time" value="30"> Less than 30 min</label>
+                <label><input type="radio" name="cooking-time" value="60"> 30-60 minutes</label>
+                <label><input type="radio" name="cooking-time" value="90"> More than 60 min</label>
             </div>
 
-            <div class="form-section objectives">
-                <h3>What is your main cooking objective? You can pick multiple 🍳</h3>
+            <!-- Cooking Objectives -->
+            <div class="input-section">
+                <h3>What is your main objective? (You Can Pick multiple!) 🍳</h3>
                 <div class="options-grid">
-                    <label><input type="checkbox" name="objective" value="Healthy Eating"> Healthy</label>
+                    <label><input type="checkbox" name="objective" value="Healthy"> Healthy Eating</label>
                     <label><input type="checkbox" name="objective" value="Weight Loss"> Weight Loss</label>
                     <label><input type="checkbox" name="objective" value="Muscle Gain"> Muscle Gain</label>
                     <label><input type="checkbox" name="objective" value="Meal Prep"> Meal Prep</label>
-                    <label><input type="checkbox" name="objective" value="Quick Meals"> Quick</label>
+                    <label><input type="checkbox" name="objective" value="Quick Meals"> Quick Meals</label>
                 </div>
             </div>
 
-            <div class="form-section cooking-type">
-                <h3>What type of meal are you looking for? You can pick multiple 🍽️</h3>
+            <!-- Meal Types -->
+            <div class="input-section">
+                <h3>What type of meal? (You Can Pick multiple!) 🍽️</h3>
                 <div class="options-grid">
                     <label><input type="checkbox" name="meal-type" value="Breakfast"> Breakfast</label>
                     <label><input type="checkbox" name="meal-type" value="Lunch"> Lunch</label>
-                    <label><input type="checkbox" name="meal-type" value="Snack"> Snack</label>
                     <label><input type="checkbox" name="meal-type" value="Dinner"> Dinner</label>
+                    <label><input type="checkbox" name="meal-type" value="Snack"> Snack</label>
                 </div>
             </div>
 
-            <div class="additional-notes">
-                <h3>Anything you want to add? (Allergies, Preferences...)</h3>
-                <input type="text" name="additional-notes" placeholder="e.g., no nuts, love spicy food">
+            <!-- Additional Notes -->
+            <div class="input-section">
+                <h3>Anything you want to add?</h3>
+                <input type="text" style="width: 97%;" name="additional-notes" class="text-input" placeholder="Allergies, Preferences...">
             </div>
 
-            <button id="submit-button">Get Meal Ideas</button>
+            <button type="submit" onclick="generateMealPlan()">Generate Meal Ideas</button>
         </div>
-        
+
         <!-- Right Column - Output -->
         <div class="output-column">
-            <div class="meal-ideas" id="meal-ideas">
-                <h2>Your Meal Ideas 🍽️</h2>
-                <div id="meal-list">
-                    <div class="placeholder" style="color: #8bc2ef; text-align: center; margin-top: 50px;">
-                        <p>Your personalized meal plan will appear here!</p>
-                        <p>Select your preferences and click "Get Meal Ideas"</p>
-                    </div>
-                </div>
+            <h2>Your Meal Plan Here</h2>
+            <div class="output-content">
+                <p>Your personalized meal plan will appear here!<br>
+                Select your preferences and click "Generate Meal Ideas"</p>
+                <div id="meal-plan"></div>
             </div>
         </div>
     </div>
