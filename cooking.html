@@ -146,7 +146,8 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to Your Personal Cooking Planner! 🍳</h1>
+    <a href="gym.html" class="nav-button" style="position: fixed; top: 20px; right: 20px; padding: 10px 15px; background-color: #ff6b9d; color: white; border-radius: 20px; text-decoration: none; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Go to Gym Assistant</a>
+    <h1>Welcome to Your Personal Cooking Planner! 🥗</h1>
     
     <div class="main-container">
         <!-- Left Column - Inputs -->
@@ -158,19 +159,20 @@
 
             <!-- Diet Preferences -->
             <div class="input-section">
-                <h3>Diet Preferences (You Can Pick multiple!) ✨</h3>
+                <h3>Diet Preferences (You Can Pick multiple!)</h3>
                 <div class="options-grid">
                     <label><input type="checkbox" name="diet" value="Vegetarian"> Vegetarian</label>
                     <label><input type="checkbox" name="diet" value="Vegan"> Vegan</label>
                     <label><input type="checkbox" name="diet" value="Gluten-Free"> Gluten-Free</label>
                     <label><input type="checkbox" name="diet" value="Low-Carb"> Low-Carb</label>
                     <label><input type="checkbox" name="diet" value="High-Protein"> High-Protein</label>
+                    <label><input type="checkbox" name="diet" value="None"> None</label>
                 </div>
             </div>
 
             <!-- Cooking Time -->
             <div class="input-section">
-                <h3>How much time do you have? ⏰</h3>
+                <h3>How much time do you have?</h3>
                 <label><input type="radio" name="cooking-time" value="30"> Less than 30 min</label>
                 <label><input type="radio" name="cooking-time" value="60"> 30-60 minutes</label>
                 <label><input type="radio" name="cooking-time" value="90"> More than 60 min</label>
@@ -178,7 +180,7 @@
 
             <!-- Cooking Objectives -->
             <div class="input-section">
-                <h3>What is your main objective? (You Can Pick multiple!) 🍳</h3>
+                <h3>What are your objectives?</h3>
                 <div class="options-grid">
                     <label><input type="checkbox" name="objective" value="Healthy"> Healthy Eating</label>
                     <label><input type="checkbox" name="objective" value="Weight Loss"> Weight Loss</label>
@@ -190,7 +192,7 @@
 
             <!-- Meal Types -->
             <div class="input-section">
-                <h3>What type of meal? (You Can Pick multiple!) 🍽️</h3>
+                <h3>What type of meal do you want to cook? (You Can Pick multiple!)</h3>
                 <div class="options-grid">
                     <label><input type="checkbox" name="meal-type" value="Breakfast"> Breakfast</label>
                     <label><input type="checkbox" name="meal-type" value="Lunch"> Lunch</label>
@@ -202,7 +204,7 @@
             <!-- Additional Notes -->
             <div class="input-section">
                 <h3>Anything you want to add?</h3>
-                <input type="text" style="width: 97%;" name="additional-notes" class="text-input" placeholder="Allergies, Preferences...">
+                <input type="text" style="width: 97%;" name="additional-notes" class="text-input" placeholder="e.g., allergies, preferences, etc.">
             </div>
 
             <button type="submit" onclick="generateMealPlan()">Generate Meal Ideas</button>
@@ -210,7 +212,7 @@
 
         <!-- Right Column - Output -->
         <div class="output-column">
-            <h2>Your Meal Plan Here</h2>
+            <h2>Your Meal Plan Here ✨</h2>
             <div class="output-content">
                 <p id="default-message">Your personalized meal plan will appear here!<br>
                 Select your preferences and click "Generate Meal Ideas"</p>
