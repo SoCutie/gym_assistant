@@ -3,6 +3,15 @@ const express = require('express');
 const axios = require('axios');
  const cors = require('cors');
 const app = express();
+const path = require('path');
+
+// Serve static files (assets, styles, etc.)
+app.use(express.static(path.join(__dirname, '..')));
+
+// Route for /
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'gym.html'));
+});
 
 app.use(cors());
 app.use(express.json());
