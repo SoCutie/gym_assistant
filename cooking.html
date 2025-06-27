@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Cooking Assistant</title>
     <style>
@@ -10,10 +11,12 @@
             margin: 0 auto;
             padding: 20px;
             background-color: #f5f9ff;
-            color: #3178e8;
+            color: #6b94d6;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: #6da8d8;
             margin-top: 0;
         }
@@ -83,7 +86,7 @@
         }
 
         /* ===== Form Elements ===== */
-        input[type="checkbox"], 
+        input[type="checkbox"],
         input[type="radio"] {
             margin-right: 8px;
             accent-color: #6da8d8;
@@ -138,22 +141,25 @@
             .main-container {
                 flex-direction: column;
             }
-            
+
             .options-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
-    <a href="gym.html" class="nav-button" style="position: fixed; top: 20px; right: 20px; padding: 10px 15px; background-color: #ff6b9d; color: white; border-radius: 20px; text-decoration: none; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Go to Gym Assistant</a>
+    <a href="gym.html" class="nav-button"
+        style="position: fixed; top: 20px; right: 20px; padding: 10px 15px; background-color: #ff6b9d; color: white; border-radius: 20px; text-decoration: none; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Go
+        to Gym Assistant</a>
     <h1>Welcome to Your Personal Cooking Planner! 🥗</h1>
-    
+
     <div class="main-container">
         <!-- Left Column - Inputs -->
         <div class="input-column">
             <!-- Cooking character image -->
-            <div class="cooking-image">    
+            <div class="cooking-image">
                 <img src="assets/pixel_art/kitchen_sanrio.png" alt="Cinnamoroll Cooking Image">
             </div>
 
@@ -204,7 +210,8 @@
             <!-- Additional Notes -->
             <div class="input-section">
                 <h3>Anything you want to add?</h3>
-                <input type="text" style="width: 97%;" name="additional-notes" class="text-input" placeholder="e.g., allergies, preferences, etc.">
+                <input type="text" style="width: 97%;" name="additional-notes" class="text-input"
+                    placeholder="e.g., allergies, preferences, etc.">
             </div>
 
             <button type="submit" onclick="generateMealPlan()">Generate Meal Ideas</button>
@@ -212,10 +219,10 @@
 
         <!-- Right Column - Output -->
         <div class="output-column">
-            <h2>Your Meal Plan Here ✨</h2>
+            <h2 id="result">Your Meal Plan Here ✨</h2>
             <div class="output-content">
                 <p id="default-message">Your personalized meal plan will appear here!<br>
-                Select your preferences and click "Generate Meal Ideas"</p>
+                    Select your preferences and click "Generate Meal Ideas"</p>
                 <div id="meal-plan"></div>
             </div>
         </div>
@@ -223,4 +230,5 @@
 
     <script src="scripts/cooking.js"></script>
 </body>
+
 </html>
