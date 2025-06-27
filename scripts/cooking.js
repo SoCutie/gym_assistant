@@ -4,7 +4,13 @@ async function generateMealPlan() {
     const defaultMessage = document.getElementById("default-message");
     defaultMessage.style.display = 'none';
     mealPlanDiv.innerHTML = '<p style="color:#8bc2ef;">Creating your meal plan... Please wait</p>';
-    
+
+    // Scroll to the result H2
+    const resultHeader = document.getElementById("result");
+    if (resultHeader) {
+        resultHeader.scrollIntoView({ behavior: "smooth" });
+    }
+
     // Gather user inputs
     const mealData = {
         diets: Array.from(document.querySelectorAll('input[name="diet"]:checked')).map(el => el.value),
@@ -30,7 +36,7 @@ async function generateMealPlan() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt })
         });
-        
+
         const data = await response.json();
         displayMealPlan(data.result);
     } catch (error) {
@@ -48,8 +54,3 @@ function displayMealPlan(text) {
         </div>
     `;
 }
-
-// Add event listener when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('submit-button').addEventListener('click', generateMealPlan);
-});

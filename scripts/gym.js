@@ -1,15 +1,18 @@
 // gym.js - Updated version
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('submit-button').addEventListener('click', generateWorkout);
-});
 
 async function generateWorkout() {
     const workoutPlanDiv = document.getElementById("workout-plan");
     const defaultMessage = document.getElementById("default-message");
-    
+
     // Hide default message and show loading
     defaultMessage.style.display = 'none';
     workoutPlanDiv.innerHTML = '<p style="color:#ff8fab;">Creating your workout plan... Please wait</p>';
+
+    // Scroll to the result H2
+    const resultHeader = document.getElementById("result");
+    if (resultHeader) {
+        resultHeader.scrollIntoView({ behavior: "smooth" });
+    }
 
     // Gather user inputs
     const workoutData = {
@@ -41,7 +44,7 @@ async function generateWorkout() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt })
         });
-        
+
         const data = await response.json();
         displayWorkoutPlan(data.result);
     } catch (error) {
@@ -62,7 +65,7 @@ function displayWorkoutPlan(text) {
 
 // Initialize muscle group toggles
 document.querySelectorAll('input[name="workout-type"]').forEach(input => {
-    input.addEventListener('change', function() {
+    input.addEventListener('change', function () {
         const muscleGroup = document.getElementById(`${this.value}-muscle-group`);
         if (muscleGroup) {
             muscleGroup.style.display = this.checked ? 'block' : 'none';

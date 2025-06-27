@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Gym Assistant</title>
     <style>
@@ -13,7 +14,9 @@
             color: #d87093;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: #ff6b9d;
             margin-top: 0;
         }
@@ -87,7 +90,7 @@
             margin-top: 5px;
         }
 
-        input[name="workout-type"]:checked ~ .muscle-group {
+        input[name="workout-type"]:checked~.muscle-group {
             display: block;
         }
 
@@ -114,7 +117,7 @@
             background-color: #ffebf1;
         }
 
-        input[type="checkbox"], 
+        input[type="checkbox"],
         input[type="radio"] {
             margin-right: 8px;
             accent-color: #ff6b9d;
@@ -160,26 +163,29 @@
             .main-container {
                 flex-direction: column;
             }
-            
+
             .workout-types {
                 flex-direction: column;
             }
-            
+
             .workout-types label {
                 white-space: normal;
             }
         }
     </style>
 </head>
+
 <body>
-    <a href="cooking.html" class="nav-button" style="position: fixed; top: 20px; right: 20px; padding: 10px 15px; background-color: #6da8d8; color: white; border-radius: 20px; text-decoration: none; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Go to Cooking Assistant</a>
+    <a href="cooking.html" class="nav-button"
+        style="position: fixed; top: 20px; right: 20px; padding: 10px 15px; background-color: #6da8d8; color: white; border-radius: 20px; text-decoration: none; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Go
+        to Cooking Assistant</a>
     <h1>Welcome to Your Personal Workout Planner! 🎀</h1>
-    
+
     <div class="main-container">
         <!-- Left Column - Inputs -->
         <div class="input-column">
             <!--Hello kitty gym image-->
-            <div class="gym-image">    
+            <div class="gym-image">
                 <img src="assets/pixel_art/hello_gym.png" alt="Hello Kitty Gym">
             </div>
 
@@ -265,7 +271,9 @@
 
             <div class="input-section">
                 <h3>Anything you want to add?</h3>
-                <input type="text" name="additional-notes" style="width: 98%; padding: 8px; border: 1px solid #ff8fab; border-radius: 15px;" placeholder="e.g., specific exercises, injuries, etc.">
+                <input type="text" name="additional-notes"
+                    style="width: 98%; padding: 8px; border: 1px solid #ff8fab; border-radius: 15px;"
+                    placeholder="e.g., specific exercises, injuries, etc.">
             </div>
 
             <button type="submit" onclick="generateWorkout()">Generate Workout Plan</button>
@@ -273,10 +281,10 @@
 
         <!-- Right Column - Output -->
         <div class="output-column">
-            <h2>Your Workout Here ✨</h2>
+            <h2 id="result">Your Workout Here ✨</h2>
             <div class="workout-output">
                 <p id="default-message">Your personalized workout will appear here!<br>
-                Select your preferences and click "Generate Workout Plan"</p>
+                    Select your preferences and click "Generate Workout Plan"</p>
                 <div id="workout-plan"></div>
             </div>
         </div>
