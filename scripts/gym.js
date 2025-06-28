@@ -39,7 +39,7 @@ async function generateWorkout() {
 
     // Call backend API
     try {
-        const response = await fetch('http://localhost:3000/api/generate-workout', {
+        const response = await fetch('https://cutiegym.com/api/generate-workout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt })

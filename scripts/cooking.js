@@ -31,7 +31,7 @@ async function generateMealPlan() {
     Provide recipes with ingredients and instructions.`;
 
     try {
-        const response = await fetch('http://localhost:3000/api/generate-meal', {
+        const response = await fetch('https://cutiegym.com/api/generate-meal', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt })
