@@ -58,7 +58,7 @@ function displayWorkoutPlan(text) {
     const workoutPlanDiv = document.getElementById("workout-plan");
     workoutPlanDiv.innerHTML = `
         <div style="background:white; padding:15px; border-radius:10px;">
-            ${marked(text)}
+            ${DOMPurify.sanitize(marked(text))}
         </div>
     `;
 }
