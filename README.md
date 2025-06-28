@@ -1,6 +1,7 @@
 # Cutie Gym
 
 This website is a gym and cooking assistant that generates workouts and meal plans 🎀
+
 Website Link : [Cutie Gym](https://cutiegym.com/)
 
 <p align="center">
