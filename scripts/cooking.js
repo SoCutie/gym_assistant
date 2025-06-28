@@ -50,7 +50,7 @@ function displayMealPlan(text) {
     defaultMessage.style.display = 'none';
     mealPlanDiv.innerHTML = `
         <div style="background:white; padding:15px; border-radius:10px;">
-            ${text.replace(/\n/g, '<br>')}
+            ${marked(text)}
         </div>
     `;
 }

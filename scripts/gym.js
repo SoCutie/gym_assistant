@@ -58,7 +58,7 @@ function displayWorkoutPlan(text) {
     const workoutPlanDiv = document.getElementById("workout-plan");
     workoutPlanDiv.innerHTML = `
         <div style="background:white; padding:15px; border-radius:10px;">
-            ${text.replace(/\n/g, '<br>')}
+            ${marked(text)}
         </div>
     `;
 }
@@ -69,6 +69,12 @@ document.querySelectorAll('input[name="workout-type"]').forEach(input => {
         const muscleGroup = document.getElementById(`${this.value}-muscle-group`);
         if (muscleGroup) {
             muscleGroup.style.display = this.checked ? 'block' : 'none';
+            // Uncheck all sub-muscles if the muscle group is unchecked
+            if (!this.checked) {
+                muscleGroup.querySelectorAll('input[type="checkbox"]').forEach(subMuscle => {
+                    subMuscle.checked = false;
+                });
+            }
         }
     });
 });
