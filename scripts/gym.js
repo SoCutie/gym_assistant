@@ -58,7 +58,7 @@ function displayWorkoutPlan(text) {
     const workoutPlanDiv = document.getElementById("workout-plan");
     workoutPlanDiv.innerHTML = `
         <div style="background:white; padding:15px; border-radius:10px;">
-            ${text.replace(/\n/g, '<br>')}
+            ${marked(text)}
         </div>
     `;
 }
