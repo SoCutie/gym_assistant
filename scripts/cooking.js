@@ -50,7 +50,7 @@ function displayMealPlan(text) {
     defaultMessage.style.display = 'none';
     mealPlanDiv.innerHTML = `
         <div style="background:white; padding:15px; border-radius:10px;">
-            ${marked(text)}
+            ${DOMPurify.sanitize(marked(text))}
         </div>
     `;
 }
